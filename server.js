@@ -239,7 +239,9 @@ io.on("connection", (socket) => {
         broadcastUsers();
     });
 });
-app.get("*", ...)
+app.get("*", (req, res) => {
+    res.sendFile(path.join(PUBLIC_DIR, "index.html"));
+});
 server.listen(PORT, () => {
     console.log(`Servidor rodando na porta ${PORT}`);
 });
