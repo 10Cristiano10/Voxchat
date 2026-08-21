@@ -239,7 +239,7 @@ io.on("connection", (socket) => {
         broadcastUsers();
     });
 });
-app.get("*", (req, res) => {
+app.get(/^(?!\/socket\.io).+/, (req, res) => {
     res.sendFile(path.join(PUBLIC_DIR, "index.html"));
 });
 server.listen(PORT, () => {
